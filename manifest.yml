@@ -1,0 +1,14 @@
+applications:
+- name: a2a-agent-registry
+  memory: 256M
+  instances: 1
+  buildpacks:
+    - nodejs_buildpack
+  command: node server.js
+  env:
+    REGISTRY_BUCKET: agent-registry   # change to your BTP Object Store bucket name
+  # BTP Object Store service binding — create + bind:
+  #   cf create-service objectstore standard a2a-registry-os
+  #   cf bind-service a2a-agent-registry a2a-registry-os
+  services:
+    - a2a-registry-os

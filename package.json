@@ -1,0 +1,15 @@
+{
+  "name": "a2a-registry-btp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A2A Agent Registry POC — single-file backend for SAP BTP CF (replaces awslabs Lambda backend)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^4.19.0",
+    "@aws-sdk/client-s3": "^3.600.0"
+  }
+}
