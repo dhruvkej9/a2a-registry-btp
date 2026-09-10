@@ -42,7 +42,8 @@ app.use((req, res, next) => {
 
 // ---------- Storage: BTP Object Store (S3) or local JSON file ----------
 const BUCKET = process.env.REGISTRY_BUCKET || 'agent-registry';
-const KEY = 'registry.json';
+// Folder/prefix inside the bucket — set REGISTRY_FOLDER in manifest (e.g. 'registry/poc1')
+const KEY = (process.env.REGISTRY_FOLDER ? process.env.REGISTRY_FOLDER.replace(/\/?$/, '/') : '') + 'registry.json';
 
 let s3 = null;
 try {
